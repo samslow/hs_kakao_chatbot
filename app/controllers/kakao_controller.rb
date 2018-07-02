@@ -27,7 +27,6 @@ class KakaoController < ApplicationController
       @cat_doc = Nokogiri::XML(@cat_xml) #:: 는 모듈안에 있다는 뜻 'nokogiri' 안의 xml 모듈 
       @cat_url = @cat_doc.xpath("//url").text
       # @text = @cat_url.text
-    elsif @user_msg == "유리's blog"
       
     end
     
@@ -43,7 +42,7 @@ class KakaoController < ApplicationController
       }
     }
     @return_msg_addlink = {
-      :text => "율블로그로 가기",
+      :text => "율로그로 가기",
       :message_button	 => {
         :label => "반갑습니다.",
         :url => "https://blog.naver.com/hellowing_"
@@ -59,6 +58,11 @@ class KakaoController < ApplicationController
         :message => @return_msg_addphoto,
         :keyboard => @return_keyboard
       }
+    elsif @user_msg == "유리's blog"
+        @result = {
+        :message => @return_msg_addlink,
+        :keyboard => @return_keyboard
+        }
     else
         @result = {
         :message => @return_msg,
