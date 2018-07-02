@@ -18,7 +18,7 @@ class KakaoController < ApplicationController
     elsif @user_msg == "메뉴선택"
       @text = ["한식", "일식", "중식", "양식"].sample.to_s
     elsif @user_msg == "오늘까지몇일?"
-      @text = Date.today.to_s
+      @text = ((-(Date.new(2017,8,28) - Date.today)).to_i + 1) + "일째 연애중♥"
     elsif @user_msg == "앞으로의 약속"
       @text = "7월 7일 보드게임콘테스트"
     elsif @user_msg == "오늘고양이"
