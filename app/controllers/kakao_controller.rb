@@ -8,6 +8,7 @@ class KakaoController < ApplicationController
   end
   
   def message
+    require 'date'
     @user_msg = params[:content] #사용자의 입력값
     
     if @user_msg == "기념일"
@@ -17,7 +18,7 @@ class KakaoController < ApplicationController
     elsif @user_msg == "메뉴선택"
       @text = ["한식", "일식", "중식", "양식"].sample.to_s
     elsif @user_msg == "오늘까지몇일?"
-      @text = "준비중이얌ㅋ"
+      @text = Date.today.to_s
     elsif @user_msg == "앞으로의 약속"
       @text = "7월 7일 보드게임콘테스트"
     elsif @user_msg == "오늘고양이"
