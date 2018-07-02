@@ -2,7 +2,7 @@ class KakaoController < ApplicationController
   def keyboard
     @keyboard = {
       type: "buttons",
-      :buttons => ["오늘까지몇일?","로또", "기념일", "앞으로의 약속", "메뉴선택","오늘고양이"]
+      :buttons => ["오늘까지몇일?","로또", "기념일", "앞으로의 약속", "메뉴선택","오늘고양이","유리's blog"]
     }
     render json: @keyboard
   end
@@ -27,6 +27,8 @@ class KakaoController < ApplicationController
       @cat_doc = Nokogiri::XML(@cat_xml) #:: 는 모듈안에 있다는 뜻 'nokogiri' 안의 xml 모듈 
       @cat_url = @cat_doc.xpath("//url").text
       # @text = @cat_url.text
+    elsif @user_msg == "유리's blog"
+      
     end
     
     @return_msg = {
@@ -40,9 +42,16 @@ class KakaoController < ApplicationController
         :height => 630
       }
     }
+    @return_msg_addlink = {
+      :text => "율블로그로 가기",
+      :message_button	 => {
+        :label => "반갑습니다.",
+        :url => "https://blog.naver.com/hellowing_"
+      }
+    }
     @return_keyboard = {
        type: "buttons",
-      :buttons => ["오늘까지몇일?", "로또","기념일", "앞으로의 약속", "메뉴선택", "오늘고양이"]
+      :buttons => ["오늘까지몇일?", "로또","기념일", "앞으로의 약속", "메뉴선택", "오늘고양이","유리's blog"]
     }
     
     if @user_msg == "오늘고양이"
