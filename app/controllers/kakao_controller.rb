@@ -44,7 +44,7 @@ class KakaoController < ApplicationController
     @return_msg_addlink = {
       :text => "율로그로 가기",
       :message_button	 => {
-        :label => "반갑습니다.",
+        :label => "*끄적끄적 : 네이버 블로그",
         :url => "https://blog.naver.com/hellowing_"
       }
     }
